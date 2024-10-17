@@ -1,0 +1,139 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Invoice Content Styles */
+.invoice_content {
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  padding: 10px;
+  width: 100%;
+}
+
+/* Adjust widths for left and right sections */
+.invoice_left, .invoice_right {
+  display: flex;
+  flex-direction: column;
+  padding: 10px; /* Increased padding for consistency */
+  width: 400px; /* Adjusted width to match the appointment layout */
+  background-color: white;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 20px; /* Adjusted margin */
+}
+
+/* Invoice Header Styles */
+.invoice_header {
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Space between logo and name */
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo Styles */
+.invoice_logo {
+  margin-left: 10px; /* Reduced margin */
+  width: 15%; /* Adjusted width */
+  height: auto;
+}
+
+/* Invoice Name Styles */
+.invoice_name {
+  font-size: 1.5rem; /* Reduced font size */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Footer Styles */
+.invoice_footer {
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  padding: 10px; /* Increased padding for consistency */
+}
+
+/* Footer Left and Right Styles */
+.invoice_footer_left, .invoice_footer_right {
+  display: flex;
+  flex-direction: column;
+  width: 45%; /* Adjusted widths */
+}
+
+/* Standard Input Styles */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%; /* Full width */
+  padding: 10px; /* Consistent padding */
+  border: 1px solid #CFD3D4; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease; /* Transition for focus effect */
+  font-size: 1rem; /* Consistent font size */
+}
+
+/* Select Field Styles */
+.appoint_select-field-cont {
+  display: flex;
+  flex-direction: column; /* Increased for better spacing */
+  width: 400px;
+  margin-left: 120px;
+}
+
+.appoint_select-field-cont select {
+  width: 100%; /* Full width */
+  padding: 10px; /* Consistent padding */ /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease; /* Transition for focus effect */
+  font-size: 1rem; /* Consistent font size */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .invoice_left, .invoice_right {
+    width: 100%; /* Make full width on smaller screens */
+  }
+
+  .invoice_content {
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left for smaller screens */
+  }
+
+  .invoice_footer {
+    flex-direction: column; /* Stack footer elements */
+    align-items: flex-start; /* Align footer to the left */
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 0.9rem; /* Slightly smaller font on mobile */
+  }
+
+  .appoint_select-field-cont select {
+    font-size: 0.9rem; /* Slightly smaller font on mobile */
+  }
+}
