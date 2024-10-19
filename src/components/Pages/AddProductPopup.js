@@ -12,7 +12,7 @@ function AddProductPopup({ onClose }) {
     const [product_price, setProductPrice] = useState('');
     const [sku, setSKU] = useState('');
     const [invent, setInvent] = useState('');
-    const [showPopup, setShowPopup] = useState(false); 
+    const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
     const [description, setDescription] = useState('');
     const [unit, setUnit] = useState('');
@@ -21,10 +21,11 @@ function AddProductPopup({ onClose }) {
     const sname = localStorage.getItem('s-name');
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         setLoading(true);
         const token = localStorage.getItem('token');
         const bid = localStorage.getItem('branch_id');
-        e.preventDefault();
+
         try {
             const response = await fetch(`${config.apiUrl}/api/swalook/inventory/product/?branch_name=${bid}`, {
                 method: 'POST',
@@ -44,18 +45,17 @@ function AddProductPopup({ onClose }) {
 
             if (response.ok) {
                 setPopupMessage('Product added successfully!');
-                setShowPopup(true);
                 onClose();
                 window.location.reload();
             } else {
-                setPopupMessage('Failed to add product.');
-                setShowPopup(true);
+                const errorData = await response.json();
+                setPopupMessage(errorData.message || 'Failed to add product.');
             }
         } catch (error) {
-            setPopupMessage('An error occurred.');
-            setShowPopup(true);
+            setPopupMessage('An error occurred. Please try again.');
         } finally {
             setLoading(false);
+            setShowPopup(true);
         }
     };
 
@@ -68,7 +68,7 @@ function AddProductPopup({ onClose }) {
                         <HighlightOffOutlinedIcon />
                     </button>
                 </div>
-                <hr />
+                <hr className="divider"/>
                 <form onSubmit={handleSubmit}>
                     <div className="adp1">
                         <label htmlFor="product_name">Name:</label>

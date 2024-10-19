@@ -53,22 +53,22 @@ function AddServicePopup({ onClose }) {
                         <HighlightOffOutlinedIcon style={{ fontSize: '24px', color: 'red' }} />
                     </button>
                 </div>
-                <hr />
+                <hr className="divider"/>
                 <form onSubmit={handleAddService}>
-                    <div className="sn1">
+                    <div className="field">
                         <label htmlFor="service_name">Service Name:</label>
                         <input type="text" id="service_name" name="service_name" placeholder='Service Name' required onChange={(e) => setService(e.target.value)} />
                     </div>
-                    <div className="sn2">
+                    <div className="field">
                         <label htmlFor="duration">Duration:</label>
                         <input type="number" id="duration" name="duration" placeholder="Duration (min)" required onChange={(e) => setServiceDuration(e.target.value)} />
                     </div>
-                    <div className="sn3">
+                    <div className="field">
                         <label htmlFor="price">Price:</label>
                         <input type="number" id="price" name="price" placeholder="Price" required onChange={(e) => setServicePrice(e.target.value)} />
                     </div>
-                    <div className="sn_button_container">
-                        <button className="sn_save_button">Save</button>
+                    <div className="button_container">
+                        <button className="save_button" type="submit">Save</button>
                     </div>
                 </form>
             </div>
